@@ -60,6 +60,7 @@ public class ToolbarHiderMono : MonoBehaviour
 
     public void ShowWindowBorders(bool value)
     {
+#if !UNITY_EDITOR
         if (Application.isEditor) return; //We don't want to hide the toolbar from our editor!
 
         int style = GetWindowLong(hWnd, GWL_STYLE).ToInt32(); //gets current style
@@ -74,6 +75,7 @@ public class ToolbarHiderMono : MonoBehaviour
             SetWindowLong(hWnd, GWL_STYLE, (uint)(style & ~(WS_CAPTION | WS_SIZEBOX))); //removes caption and the sizebox from current style.
             SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW); //Make the window render above toolbar.
         }
+#endif
     }
 
     private void Awake()

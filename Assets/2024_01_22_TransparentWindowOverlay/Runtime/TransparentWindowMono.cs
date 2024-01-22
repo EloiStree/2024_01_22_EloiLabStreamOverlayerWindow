@@ -29,16 +29,12 @@ public class TransparentWindowMono : MonoBehaviour
 
     private IntPtr hWnd;
 
-    public int m_leftPixel = 200;
-    public int m_topPixel = 200;
-    public int m_width = 512;
-    public int m_height = 512;
     private const int GWL_STYLE = -16;
 
 
     private void Start()
     {
-#if !UNITY_EDITOR_
+#if !UNITY_EDITOR
         hWnd = GetActiveWindow();
 
         // Set the window style to layered and transparent
@@ -53,10 +49,6 @@ public class TransparentWindowMono : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        // Add your logic here for handling mouse interactions or other updates
-    }
 
 
 
@@ -76,10 +68,6 @@ public class TransparentWindowMono : MonoBehaviour
         public int Bottom;
     }
 
-    // Constants for SetWindowPos function
-    const uint SWP_NOSIZE = 0x0001;
-    const uint SWP_NOZORDER = 0x0004;
-    const uint SWP_SHOWWINDOW = 0x0040;
 
 
 

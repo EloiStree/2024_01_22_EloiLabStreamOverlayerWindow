@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/2024_01_22_TransparentWindowOverlay/Transparent.unity
-    guid: dac24168df006444bb9fd100440df783
+    path: Assets/2024_01_22_TransparentWindowOverlay/Overlay Main Screen.unity
+    guid: 3920564dde979d14a977b9e8b82ab356
+  - enabled: 1
+    path: Assets/2024_01_22_TransparentWindowOverlay/Overlayer Following Mouse.unity
+    guid: 76a8828c3c761514aa6c84fffd064671
   m_configObjects: {}

@@ -36,13 +36,26 @@ public class KeepWindowFrameAtMousePositionMono : MonoBehaviour
     static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
 
     IntPtr hWnd;
+    public bool m_removeFullScreenAtStart = true;
     private void Start()
     {
-#if !UNITY_EDITOR_
+        if (m_removeFullScreenAtStart)
+            SetFullscreen(false);
+#if !UNITY_EDITOR
          hWnd = GetActiveWindow();
 #endif
     }
 
+    public void ToggleFullscreen()
+    {
+        // Toggle between fullscreen and windowed mode
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+    public void SetFullscreen(bool wantFullScreen)
+    {
+        // Toggle between fullscreen and windowed mode
+        Screen.fullScreen = wantFullScreen;
+    }
     public bool m_useOffset = false;
     public int m_offsetXPixel = 1;
     public int m_offsetYPixel = 10;
@@ -51,7 +64,7 @@ public class KeepWindowFrameAtMousePositionMono : MonoBehaviour
 
     private void Update()
     {
-#if !UNITY_EDITOR_
+#if !UNITY_EDITOR
         
 
         // Set minimum size
